@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+//Http Module Injection
+import { HttpClientModule } from '@angular/common/http';
+
 // RouterModules
 import { Routes, RouterModule } from '@angular/router';
 
@@ -30,6 +33,9 @@ import { AppComponent } from './app.component';
 
 //Form Modules
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormComponent } from './form/form.component';
+import { AuthorComponent } from './author/author.component';
+
 
 const routes: Routes=[
   //{ path:'', component:  },
@@ -40,7 +46,9 @@ const routes: Routes=[
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FormComponent,
+    AuthorComponent
   ],
   imports: [
     BrowserModule,
@@ -65,6 +73,8 @@ const routes: Routes=[
     FlexModule ,
     GridModule,
     FlexLayoutModule,
+    //Http
+    HttpClientModule,
   ],
   //need to add Export for Router Module
   exports:[

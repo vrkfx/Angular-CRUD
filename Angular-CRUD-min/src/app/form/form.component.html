@@ -1,0 +1,50 @@
+
+<!-- Simple Form for later use to add data to the database -->
+<form >
+  <div class="parent">
+    <div class="col">
+      <div class="header">Add Author</div>
+      <div>
+        <mat-form-field appearance="fill" [style.width.em]="15" color="accent">
+          <mat-label>Author Name</mat-label>
+          <input
+            matInput
+            [(ngModel)]="authorName"
+            name="title"
+            placeholder="Author Name"
+          />
+        </mat-form-field>
+      </div>
+
+      <div class="button">
+        <button
+          mat-raised-button
+          style="color: rgb(255, 255, 255); background-color: rgb(255, 187, 0)"
+          (click)="create()"
+        >
+          ADD AUTHOR
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
+
+<!-- Simple table as part of initial testing need change later on  -->
+<div class="container">
+  <!-- Display table if Authors exist -->
+  <table class="table" *ngIf="authors && authors.length > 0">
+    <thead>
+      <tr>
+        <th>Author Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let i of authors">
+        {{i}}
+        <td>{{i.authorName}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- If NO Data Exist -->
+  <p *ngIf="!authors || authors.length <= 0 "> NO Authors Found</p>
+</div>
