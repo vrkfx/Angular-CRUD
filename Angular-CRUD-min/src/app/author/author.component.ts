@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,Input,Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-author',
@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./author.component.css']
 })
 export class AuthorComponent {
+  @Input() authorName: string = ''
+  @Output() newAuthor  = new EventEmitter<{authorName:string}>
 
+
+constructor(){ }
+
+  create(){
+    console.log("This Button Works")
+  }
 }

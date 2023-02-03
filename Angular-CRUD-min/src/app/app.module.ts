@@ -1,3 +1,4 @@
+import { author } from './models/author.model';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -35,20 +36,23 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { FormComponent } from './form/form.component';
 import { AuthorComponent } from './author/author.component';
+import { AddAuthorDisplayComponent } from './add-author-display/add-author-display.component';
 
 
 const routes: Routes=[
-  //{ path:'', component:  },
+  { path:'', component: FormComponent },
   //Path Match Can be 'full' or prefix
   //{ path: '', redirectTo: '/todo', pathMatch: 'full' },
-  // { path:'', component:  },
+   { path:'author', component:FormComponent  },
+   { path:'author/add', component:AuthorComponent },
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     FormComponent,
-    AuthorComponent
+    AuthorComponent,
+    AddAuthorDisplayComponent
   ],
   imports: [
     BrowserModule,
