@@ -1,3 +1,4 @@
+import { environment } from 'src/environments/environment';
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -10,8 +11,8 @@ import { Observable } from 'rxjs';
 export class CrudService {
 
   //ENVIRONMENT VARIABLE - NOT WORKING FOR NOW
-  // baseApiUrl: string = environment.baseApiUrl;
-   baseApiUrl: string = 'https://localhost:7132';
+  baseApiUrl: string = environment.baseApiUrl
+  // baseApiUrl: string = 'https://localhost:7132';
 
 //Need inject Http Client Module
   constructor(private http: HttpClient) { }
