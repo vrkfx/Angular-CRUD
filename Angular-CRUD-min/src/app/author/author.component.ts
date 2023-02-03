@@ -6,13 +6,14 @@ import { Component,Input,Output, EventEmitter } from '@angular/core';
   styleUrls: ['./author.component.css']
 })
 export class AuthorComponent {
-  @Input() authorName: string = ''
-  @Output() newAuthor  = new EventEmitter<{authorName:string}>
+  @Input() authorName: string=''
+
+  @Output() submitEvent = new EventEmitter<string>();
 
 
 constructor(){ }
 
   create(){
-    console.log("This Button Works")
+    this.submitEvent.emit(this.authorName);
   }
 }

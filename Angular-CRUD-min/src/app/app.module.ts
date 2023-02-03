@@ -44,7 +44,7 @@ const routes: Routes=[
   //Path Match Can be 'full' or prefix
   //{ path: '', redirectTo: '/todo', pathMatch: 'full' },
    { path:'author', component:FormComponent  },
-   { path:'author/add', component:AuthorComponent },
+   { path:'author/add', component:AddAuthorDisplayComponent },
 ];
 
 @NgModule({

@@ -1,3 +1,4 @@
+import { author } from './../models/author.model';
 import { Component, Input,Output, EventEmitter } from '@angular/core';
 
 @Component({
@@ -7,14 +8,13 @@ import { Component, Input,Output, EventEmitter } from '@angular/core';
 })
 export class AddAuthorDisplayComponent {
 
-  @Input() authorName: string = ''
-  @Output() newAuthor  = new EventEmitter<{authorName:string}>
+  value=''
 
 
 constructor(){ }
 
-  create(){
-    console.log("This Button Works")
+handleSubmit(value: string){
+  console.log(value);
   }
 
 }
