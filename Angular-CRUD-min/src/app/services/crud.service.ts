@@ -23,4 +23,12 @@ export class CrudService {
   getAllAuthors(): Observable<author[]>{
    return this.http.get<author[]>(this.baseApiUrl + '/api/Authors')
   }
+
+  // addData(data) {
+  //   return this.http.post(this.apiUrl, data);
+  // }
+  postAuthors(author: author): Observable<author>{
+    return this.http.post<author>(this.baseApiUrl + '/api/Authors', author);
+  }
+
 }

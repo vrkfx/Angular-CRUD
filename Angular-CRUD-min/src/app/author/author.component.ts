@@ -1,19 +1,27 @@
-import { Component,Input,Output, EventEmitter } from '@angular/core';
+import { author } from './../models/author.model';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-author',
   templateUrl: './author.component.html',
   styleUrls: ['./author.component.css']
 })
-export class AuthorComponent {
-  @Input() authorName: string=''
+export class AuthorComponent implements OnInit{
+  // @Input() authorName: string=''
+  authorName = '';
+  authorId = 0
 
-  @Output() submitEvent = new EventEmitter<string>();
+  @Output() submitEvent = new EventEmitter<author>();
 
 
 constructor(){ }
 
+ngOnInit(): void {
+
+}
+
   create(){
-    this.submitEvent.emit(this.authorName);
+    this.submitEvent.emit({authorId: this.authorId, authorName: this.authorName});
+    this.authorName = '';
   }
 }
