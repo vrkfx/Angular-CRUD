@@ -1,5 +1,5 @@
 
-//Has to be same as data base - Case Sensitive
+//Has to be same as database - Case Sensitive
 
 export interface author{
   authorId: number;
