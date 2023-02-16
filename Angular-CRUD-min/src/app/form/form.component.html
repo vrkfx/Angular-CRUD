@@ -27,6 +27,16 @@
     >
       Add Author
     </button>
+
+    <div class="button">
+      <button
+        mat-raised-button
+        style="color: rgb(255, 255, 255); background-color: rgb(6, 6, 6)"
+        (click)="openDialog()"
+      >
+        ADD AUTHOR
+      </button>
+    </div>
   </div>
   <!-- If NO Data Exist -->
   <p *ngIf="!authors || authors.length <= 0">NO Authors Found</p>

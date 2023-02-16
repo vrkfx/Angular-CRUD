@@ -2,6 +2,7 @@ import { CrudService } from './../services/crud.service';
 import { author } from './../models/author.model';
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { DialogBoxComponent } from '../dialog-box/dialog-box.component'
 
 @Component({
   selector: 'app-form',
@@ -16,6 +17,12 @@ export class FormComponent implements OnInit {
   authors: author[] = [];
 
   constructor(private crudSrevice: CrudService, public dialog: MatDialog) {}
+  openDialog(){
+    this.dialog.open(DialogBoxComponent,{
+      width:'250px',
+      data:"right click"
+    })
+  }
 
   //On Initialised invokes once when directive is instantiated
   ngOnInit(): void {

@@ -38,6 +38,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormComponent } from './form/form.component';
 import { AuthorComponent } from './author/author.component';
 import { AddAuthorDisplayComponent } from './add-author-display/add-author-display.component';
+import { DialogBoxComponent } from './dialog-box/dialog-box.component';
 
 const routes: Routes = [
   { path: '', component: FormComponent },
@@ -53,6 +54,7 @@ const routes: Routes = [
     FormComponent,
     AuthorComponent,
     AddAuthorDisplayComponent,
+    DialogBoxComponent,
   ],
   imports: [
     BrowserModule,

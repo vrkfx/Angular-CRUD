@@ -1,3 +1,4 @@
+import { MatDialog } from '@angular/material/dialog';
 import { author } from './../models/author.model';
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 
@@ -13,7 +14,7 @@ export class AuthorComponent implements OnInit {
 
   @Output() submitEvent = new EventEmitter<author>();
 
-  constructor() {}
+
 
   ngOnInit(): void {}
 
