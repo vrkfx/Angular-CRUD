@@ -32,13 +32,15 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 //Components
 import { AppComponent } from './app.component';
-
-//Form Modules
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormComponent } from './form/form.component';
 import { AuthorComponent } from './author/author.component';
 import { AddAuthorDisplayComponent } from './add-author-display/add-author-display.component';
-import { DialogBoxComponent } from './dialog-box/dialog-box.component';
+import { DialogBoxComponent } from './dialogs/dialog-box/dialog-box.component';
+import { DeleteAuthorDialogComponent } from './dialogs/delete-author-dialog/delete-author-dialog.component';
+
+//Form Modules
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 const routes: Routes = [
   { path: '', component: FormComponent },
@@ -55,6 +57,7 @@ const routes: Routes = [
     AuthorComponent,
     AddAuthorDisplayComponent,
     DialogBoxComponent,
+    DeleteAuthorDialogComponent,
   ],
   imports: [
     BrowserModule,

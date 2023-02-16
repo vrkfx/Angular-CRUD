@@ -2,7 +2,8 @@ import { CrudService } from './../services/crud.service';
 import { author } from './../models/author.model';
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogBoxComponent } from '../dialog-box/dialog-box.component'
+import { DialogBoxComponent } from '../dialogs/dialog-box/dialog-box.component'
+import { DeleteAuthorDialogComponent } from '../dialogs/delete-author-dialog/delete-author-dialog.component'
 
 @Component({
   selector: 'app-form',
@@ -48,7 +49,7 @@ export class FormComponent implements OnInit {
       // this.crudSrevice.getAllAuthors() ;
       // alert('Author ' + id + 'Has been Deleted !!');
       // window.location.reload();
-      const dialogRef = this.dialog.open(DialogBoxComponent, {
+      const dialogRef = this.dialog.open(DeleteAuthorDialogComponent, {
         width: '250px',
         data: {},
       });
