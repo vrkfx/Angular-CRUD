@@ -16,6 +16,7 @@ export class FormComponent implements OnInit {
 
   // init interface model
   authors: author[] = [];
+  columnsToDisplay = ["authorId","authorName", "actions"]
 
   constructor(private crudSrevice: CrudService, public dialog: MatDialog) {}
   openDialog(){
