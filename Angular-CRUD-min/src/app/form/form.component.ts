@@ -46,8 +46,13 @@ export class FormComponent implements OnInit {
   deleteData(id: number) {
     this.crudSrevice.deleteAuthor(id).subscribe(() => {
       // this.crudSrevice.getAllAuthors() ;
-      alert('Author ' + id + 'Has been Deleted !!');
-      window.location.reload();
+      // alert('Author ' + id + 'Has been Deleted !!');
+      // window.location.reload();
+      const dialogRef = this.dialog.open(DialogBoxComponent, {
+        width: '250px',
+        data: {},
+      });
+
     });
   }
 }

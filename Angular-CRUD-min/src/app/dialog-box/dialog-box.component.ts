@@ -22,5 +22,9 @@ onNoClick(): void {
   console.log(this.data)
 }
 
+closeDialog() {
+  this.dialogRef.close();
+  window.location.reload();
+}
 
 }
