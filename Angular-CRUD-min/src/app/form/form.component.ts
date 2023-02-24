@@ -1,5 +1,6 @@
 import { CrudService } from './../services/crud.service';
 import { author } from './../models/author.model';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogBoxComponent } from '../dialogs/dialog-box/dialog-box.component'
@@ -11,30 +12,51 @@ import { DeleteAuthorDialogComponent } from '../dialogs/delete-author-dialog/del
   styleUrls: ['./form.component.css'],
 })
 export class FormComponent implements OnInit {
+search: string = ''
+
+
   // @Input() authorName: string = ''
-  // @Output() newAuthor  = new EventEmitter<{authorName:string}>
+   @Output() newAuthor  = new EventEmitter<author>
 
   // init interface model
   authors: author[] = [];
   columnsToDisplay = ["authorId","authorName", "actions"]
 
-  constructor(private crudSrevice: CrudService, public dialog: MatDialog) {}
-  openDialog(){
-    this.dialog.open(DialogBoxComponent,{
-      width:'250px',
-      data:"right click"
-    })
+  //@Output() newAuthor = new EventEmitter<string>();
+
+  constructor(private crudService: CrudService, public dialog: MatDialog) {}
+
+  openDialog() : void{
+    const dialogRef = this.dialog.open(DialogBoxComponent,{
+      width:'300px',
+      data:{ name: '' },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.newAuthor.emit(result.name);
+      }
+      console.log(dialogRef)
+    });
+    // dialogRef.afterClosed().subscribe((result) => {
+    //   if (result) {
+    //     this.newAuthor.emit(result.name);
+    //     console.log(result.name)
+    //   }
+    // });
+
   }
 
   //On Initialised invokes once when directive is instantiated
   ngOnInit(): void {
     this.displayAllAuthors();
+    console.log(this.searchFilter(this.search));
   }
 
   displayAllAuthors() {
     // this.authors.push()
     //Using the service script and the subscirbe method from the observal pattern for data transfer
-    this.crudSrevice.getAllAuthors().subscribe({
+    this.crudService.getAllAuthors().subscribe({
       next: (authors) => {
         console.log(authors);
         this.authors = authors;
@@ -46,7 +68,7 @@ export class FormComponent implements OnInit {
   }
 
   deleteData(id: number) {
-    this.crudSrevice.deleteAuthor(id).subscribe(() => {
+    this.crudService.deleteAuthor(id).subscribe(() => {
       // this.crudSrevice.getAllAuthors() ;
       // alert('Author ' + id + 'Has been Deleted !!');
       // window.location.reload();
@@ -57,4 +79,12 @@ export class FormComponent implements OnInit {
 
     });
   }
+
+
+  searchFilter(search: string){
+     return this.authors.filter((element) => element.authorName.toLowerCase().includes(search.toLowerCase()));
+
+  }
+
+
 }

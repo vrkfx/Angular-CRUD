@@ -1,5 +1,5 @@
-import { environment } from 'src/environments/environment';
-
+import { environment } from 'src/environments/environment.development';
+//import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { author } from './../models/author.model';
@@ -32,5 +32,12 @@ export class CrudService {
 
   deleteAuthor(id: number): Observable<void> {
     return this.http.delete<void>(`${this.baseApiUrl + '/api/Authors'}/${id}`);
+  }
+
+  updateAuthor(author: author): Observable<author>{
+    return this.http.put<author>(this.baseApiUrl + '/api/Authors', author)
+    .pipe(
+
+    );
   }
 }

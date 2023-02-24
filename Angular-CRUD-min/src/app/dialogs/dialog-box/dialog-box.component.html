@@ -4,11 +4,13 @@
   <h3>Add New Author</h3>
   <mat-form-field appearance="fill">
     <mat-label> Insert Author Name</mat-label>
-    <input matInput>
+    <input matInput [(ngModel)]="data.name" placeholder="Name">
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()"> Cancel </button>
-  <button mat-button cdkFocusInitial>OK</button>
+  <!-- <button mat-button (click)="createD()" cdkFocusInitial>OK</button> -->
+  <!-- <button mat-button (click)="onClick(who)" cdkFocusInitial>OK</button> -->
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>OK</button>
 </div>
 

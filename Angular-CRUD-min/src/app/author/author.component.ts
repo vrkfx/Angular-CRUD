@@ -24,5 +24,6 @@ export class AuthorComponent implements OnInit {
       authorName: this.authorName,
     });
     this.authorName = '';
+
   }
 }
