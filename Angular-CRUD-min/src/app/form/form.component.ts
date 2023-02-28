@@ -12,7 +12,6 @@ import { DeleteAuthorDialogComponent } from '../dialogs/delete-author-dialog/del
   styleUrls: ['./form.component.css'],
 })
 export class FormComponent implements OnInit {
-search: string = ''
 
 
   // @Input() authorName: string = ''
@@ -27,30 +26,28 @@ search: string = ''
   constructor(private crudService: CrudService, public dialog: MatDialog) {}
 
   openDialog() : void{
-    const dialogRef = this.dialog.open(DialogBoxComponent,{
-      width:'300px',
-      data:{ name: '' },
+    const dialogRef = this.dialog.open(DialogBoxComponent
+      //,{
+      // width:'300px',
+      // data:{ name: '' },
+   // }
+    );
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.crudService.postAuthors(result).subscribe(response => {
+          console.log(response);
+          location.reload();
+        });
+      }
     });
 
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result) {
-        this.newAuthor.emit(result.name);
-      }
-      console.log(dialogRef)
-    });
-    // dialogRef.afterClosed().subscribe((result) => {
-    //   if (result) {
-    //     this.newAuthor.emit(result.name);
-    //     console.log(result.name)
-    //   }
-    // });
 
   }
 
   //On Initialised invokes once when directive is instantiated
   ngOnInit(): void {
     this.displayAllAuthors();
-    console.log(this.searchFilter(this.search));
   }
 
   displayAllAuthors() {
@@ -79,12 +76,5 @@ search: string = ''
 
     });
   }
-
-
-  searchFilter(search: string){
-     return this.authors.filter((element) => element.authorName.toLowerCase().includes(search.toLowerCase()));
-
-  }
-
 
 }

@@ -10,11 +10,15 @@ import { CrudService } from '../../services/crud.service';
 })
 export class DialogBoxComponent implements OnInit {
 
-  constructor(
-    public dialogRef: MatDialogRef<DialogBoxComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any, private crudService: CrudService
-  ) {}
+  // constructor(
+  //   public dialogRef: MatDialogRef<DialogBoxComponent>,
+  //   @Inject(MAT_DIALOG_DATA) public data: {authorName: string}, private crudService: CrudService
+  // ) {}
 
+  constructor(public dialogRef: MatDialogRef<DialogBoxComponent>) {}
+  data: any = {
+
+  };
 
   authorName = '';
   authorId = 0;
@@ -23,31 +27,36 @@ export class DialogBoxComponent implements OnInit {
 
   @Output() submitEvent = new EventEmitter<author>();
 
-  test(author :author ) {
-    // this.submitEvent.emit({
-    //   authorId: this.authorId,
-    //   authorName: this.authorName,
-    // });
-    // this.authorName = '';
-    // console.log(this.submitEvent)
-    this.crudService.postAuthors(author).subscribe(() => {
-      // this.crudService.getAllAuthors()
-      //  .subscribe(data => {
-      //     this.author = data;
-      //   });
-      alert('done');
-    });
-  }
+  // test(author :author ) {
+  //   // this.submitEvent.emit({
+  //   //   authorId: this.authorId,
+  //   //   authorName: this.authorName,
+  //   // });
+  //   // this.authorName = '';
+  //   // console.log(this.submitEvent)
+  //   this.crudService.postAuthors(author).subscribe(() => {
+  //     // this.crudService.getAllAuthors()
+  //     //  .subscribe(data => {
+  //     //     this.author = data;
+  //     //   });
+  //     alert('done');
+  //   });
+  // }
 
 ngOnInit(): void {
 
 }
 
-
-onNoClick(): void {
-  this.dialogRef.close();
+onSubmit() {
+  this.dialogRef.close(this.data);
   console.log(this.data)
+
 }
+
+// onNoClick(): void {
+//   this.dialogRef.close();
+//   console.log(this.data)
+// }
 
 // closeDialog() {
 //   this.dialogRef.close();
