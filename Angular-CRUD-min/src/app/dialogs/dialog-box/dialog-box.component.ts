@@ -25,7 +25,7 @@ export class DialogBoxComponent implements OnInit {
 
   author: author[] = [];
 
-  @Output() submitEvent = new EventEmitter<author>();
+  // @Output() submitEvent = new EventEmitter<author>();
 
   // test(author :author ) {
   //   // this.submitEvent.emit({

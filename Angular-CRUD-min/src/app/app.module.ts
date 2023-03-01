@@ -38,6 +38,7 @@ import { AuthorComponent } from './author/author.component';
 import { AddAuthorDisplayComponent } from './add-author-display/add-author-display.component';
 import { DialogBoxComponent } from './dialogs/dialog-box/dialog-box.component';
 import { DeleteAuthorDialogComponent } from './dialogs/delete-author-dialog/delete-author-dialog.component';
+import { EditDialogComponent } from './dialogs/edit-dialog/edit-dialog.component';
 
 //Form Modules
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -59,6 +60,7 @@ const routes: Routes = [
     AddAuthorDisplayComponent,
     DialogBoxComponent,
     DeleteAuthorDialogComponent,
+    EditDialogComponent,
   ],
   imports: [
     BrowserModule,

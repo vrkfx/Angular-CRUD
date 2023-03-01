@@ -1,0 +1,13 @@
+<form (ngSubmit)="onUpdate()">
+  <div mat-dialog-content class="mat-typography">
+    <h3>Update Author</h3>
+    <mat-form-field appearance="fill">
+      <mat-label> Update Author Name</mat-label>
+      <input matInput [(ngModel)]="data.authorName" name="authorName" placeholder="Name">
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-raised-button color="secondary" type="submit">Update</button>
+    <button mat-raised-button cdkFocusInitial (click)="dialogRef.close()">Cancel</button>
+  </div>
+  </form>
