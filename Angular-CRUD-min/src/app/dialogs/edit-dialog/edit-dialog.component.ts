@@ -10,17 +10,18 @@ import { CrudService } from '../../services/crud.service';
 })
 export class EditDialogComponent implements OnInit{
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
 
-  }
 
   constructor(public dialogRef: MatDialogRef<EditDialogComponent>){}
 
-  data: any = {};
+  data: any = { };
 
   onUpdate(){
     console.log(this.data)
     console.log("Updated True")
+    this.dialogRef.close(this.data);
+
   }
 
 }

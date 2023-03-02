@@ -34,10 +34,12 @@ export class CrudService {
     return this.http.delete<void>(`${this.baseApiUrl + '/api/Authors'}/${id}`);
   }
 
-  updateAuthor(author: author): Observable<author>{
-    return this.http.put<author>(this.baseApiUrl + '/api/Authors', author)
-    .pipe(
-
-    );
+  updateAuthor(author: author): Observable<author> {
+    const url = `${this.baseApiUrl + '/api/Authors'}/${author.authorId}`;
+    return this.http.put<author>(url, author);
   }
+
+  // updateAuthor(author: author): Observable<author>{
+  //   return this.http.put<author>(this.baseApiUrl + '/api/Authors', author)
+  // }
 }

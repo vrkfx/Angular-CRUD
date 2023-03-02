@@ -47,8 +47,6 @@ export class FormComponent implements OnInit {
         });
       }
     });
-
-
   }
 
   //On Initialised invokes once when directive is instantiated
@@ -79,25 +77,27 @@ export class FormComponent implements OnInit {
         width: '250px',
         data: {},
       });
-
+      this.displayAllAuthors()
     });
   }
 
-  editData(id:number){
+  editData(authorId:number, authorName:string){
     const dialogRef = this.dialog.open(EditDialogComponent);
+
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.crudService.updateAuthor(result).subscribe(response => {
-          console.log(response);
+          // console.log(response);
           //location.reload();
           this.authors.push(response)
+          this.displayAllAuthors()
+          console.log(this.authors)
         //  this.table.dataSource.data.push(response)
-          this.table.renderRows();
-
+         // this.table.renderRows();
         });
       }
     });
-    console.log("Edit Triggred for ID " + id)
+    console.log("Edit Triggred for " + authorId + " Name " + authorName)
   }
 
 }
