@@ -21,6 +21,7 @@ export class FormComponent implements OnInit {
 
   // init interface model
   authors: author[] = [];
+  showData : any;
   columnsToDisplay = ["authorId","authorName", "delete","edit"]
 
   //@Output() newAuthor = new EventEmitter<string>();
@@ -82,18 +83,22 @@ export class FormComponent implements OnInit {
   }
 
   editData(authorId:number, authorName:string){
-    const dialogRef = this.dialog.open(EditDialogComponent);
+
+    const dialogRef = this.dialog.open(EditDialogComponent,{
+      data:{
+        authorId:authorId,
+        authorName:authorName,
+      }
+    });
 
     dialogRef.afterClosed().subscribe(result => {
+
+
       if (result) {
         this.crudService.updateAuthor(result).subscribe(response => {
-          // console.log(response);
-          //location.reload();
           this.authors.push(response)
           this.displayAllAuthors()
           console.log(this.authors)
-        //  this.table.dataSource.data.push(response)
-         // this.table.renderRows();
         });
       }
     });

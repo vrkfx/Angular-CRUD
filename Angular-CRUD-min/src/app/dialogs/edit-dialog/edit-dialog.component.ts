@@ -1,5 +1,6 @@
+import { author } from './../../models/author.model';
 import { Component, OnInit, Inject, Input, Output, EventEmitter, } from '@angular/core';
-import { author } from '../../models/author.model';
+
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { CrudService } from '../../services/crud.service';
 
@@ -13,9 +14,11 @@ export class EditDialogComponent implements OnInit{
   ngOnInit(): void {}
 
 
-  constructor(public dialogRef: MatDialogRef<EditDialogComponent>){}
+  constructor(public dialogRef: MatDialogRef<EditDialogComponent>,@Inject(MAT_DIALOG_DATA) public data: author ){}
 
-  data: any = { };
+  // data: any = {
+
+  // };
 
   onUpdate(){
     console.log(this.data)
